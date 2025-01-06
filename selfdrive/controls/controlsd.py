@@ -207,7 +207,7 @@ class Controls:
     rk = Ratekeeper(100, print_delay_threshold=None)
     while True:
       self.update()
-      CC, lac_log = self.state_control()
+      CC, lac_log = float(self.state_control())
       self.publish(CC, lac_log)
       rk.monitor_time()
 
