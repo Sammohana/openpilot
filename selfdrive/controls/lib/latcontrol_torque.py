@@ -81,9 +81,9 @@ class LatControlTorque(LatControl):
 
       pid_log.active = True
       pid_log.p = float(self.pid.p)
-      pid_log.i = self.pid.i
-      pid_log.d = self.pid.d
-      pid_log.f = self.pid.f
+      pid_log.i = float(self.pid.i)
+      pid_log.d = float(self.pid.d)
+      pid_log.f = float(self.pid.f)
       pid_log.output = -output_torque
       pid_log.actualLateralAccel = actual_lateral_accel
       pid_log.desiredLateralAccel = desired_lateral_accel

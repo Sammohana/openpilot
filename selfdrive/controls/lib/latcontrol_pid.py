@@ -39,9 +39,9 @@ class LatControlPID(LatControl):
       output_steer = self.pid.update(error, override=CS.steeringPressed,
                                      feedforward=steer_feedforward, speed=CS.vEgo)
       pid_log.active = True
-      pid_log.p = self.pid.p
-      pid_log.i = self.pid.i
-      pid_log.f = self.pid.f
+      pid_log.p = float(self.pid.p)
+      pid_log.i = float(self.pid.i)
+      pid_log.f = float(self.pid.f)
       pid_log.output = output_steer
       pid_log.saturated = self._check_saturation(self.steer_max - abs(output_steer) < 1e-3, CS, steer_limited)
 
