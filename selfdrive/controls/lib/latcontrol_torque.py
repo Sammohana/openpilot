@@ -68,7 +68,7 @@ class LatControlTorque(LatControl):
                                                             setpoint, lateral_accel_deadzone, friction_compensation=False, gravity_adjusted=False)
       torque_from_measurement = self.torque_from_lateral_accel(LatControlInputs(measurement, roll_compensation, CS.vEgo, CS.aEgo), self.torque_params,
                                                                measurement, lateral_accel_deadzone, friction_compensation=False, gravity_adjusted=False)
-      pid_log.error = torque_from_setpoint - torque_from_measurement
+      pid_log.error = float(torque_from_setpoint - torque_from_measurement)
       ff = self.torque_from_lateral_accel(LatControlInputs(gravity_adjusted_lateral_accel, roll_compensation, CS.vEgo, CS.aEgo), self.torque_params,
                                           desired_lateral_accel - actual_lateral_accel, lateral_accel_deadzone, friction_compensation=True,
                                           gravity_adjusted=True)
@@ -80,7 +80,7 @@ class LatControlTorque(LatControl):
                                       freeze_integrator=freeze_integrator)
 
       pid_log.active = True
-      pid_log.p = self.pid.p
+      pid_log.p = float(self.pid.p)
       pid_log.i = self.pid.i
       pid_log.d = self.pid.d
       pid_log.f = self.pid.f
