@@ -200,8 +200,8 @@ class LongitudinalPlanner:
     a_target, should_stop = get_accel_from_plan(longitudinalPlan.speeds, longitudinalPlan.accels,
                                                 action_t=action_t, vEgoStopping=self.CP.vEgoStopping)
     longitudinalPlan.aTarget = float(a_target)
-    longitudinalPlan.shouldStop = should_stop
+    longitudinalPlan.shouldStop = bool(should_stop)
     longitudinalPlan.allowBrake = True
-    longitudinalPlan.allowThrottle = self.allow_throttle
+    longitudinalPlan.allowThrottle = bool(self.allow_throttle)
 
     pm.send('longitudinalPlan', plan_send)

@@ -226,8 +226,8 @@ def main():
       liveParameters.steerRatio = float(x[States.STEER_RATIO].item())
       liveParameters.stiffnessFactor = float(x[States.STIFFNESS].item())
       liveParameters.roll = float(roll)
-      liveParameters.angleOffsetAverageDeg = angle_offset_average
-      liveParameters.angleOffsetDeg = angle_offset
+      liveParameters.angleOffsetAverageDeg = float(angle_offset_average)
+      liveParameters.angleOffsetDeg = float(angle_offset)
       liveParameters.valid = all((
         avg_offset_valid,
         total_offset_valid,

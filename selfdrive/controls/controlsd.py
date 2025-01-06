@@ -65,7 +65,7 @@ class Controls:
       self.calibrated_pose = self.pose_calibrator.build_calibrated_pose(device_pose)
 
   def state_control(self):
-    CS = self.sm['carState']
+    CS = float(self.sm['carState'])
 
     # Update VehicleModel
     lp = self.sm['liveParameters']
@@ -110,7 +110,7 @@ class Controls:
 
     # Steering PID loop and lateral MPC
     self.desired_curvature = clip_curvature(CS.vEgo, self.desired_curvature, model_v2.action.desiredCurvature)
-    actuators.curvature = self.desired_curvature
+    actuators.curvature = float(self.desired_curvature)
     actuators.steer, actuators.steeringAngleDeg, lac_log = self.LaC.update(CC.latActive, CS, self.VM, lp,
                                                                             self.steer_limited, self.desired_curvature,
                                                                             self.calibrated_pose) # TODO what if not available
