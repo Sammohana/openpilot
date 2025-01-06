@@ -1,6 +1,6 @@
 from cereal import log
 from openpilot.common.realtime import DT_CTRL
-from numpy import clip 
+from numpy import clip
 
 MIN_SPEED = 1.0
 CONTROL_N = 17
